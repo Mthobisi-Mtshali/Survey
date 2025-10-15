@@ -161,7 +161,7 @@ public class new2 extends javax.swing.JFrame {
                                 .addComponent(JSum1))
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                 .addComponent(jLabel11)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 101, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 139, Short.MAX_VALUE)
                                 .addComponent(JSum7))
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                 .addComponent(jLabel10)
@@ -190,15 +190,11 @@ public class new2 extends javax.swing.JFrame {
                                     .addComponent(JSum8))))))
                 .addGap(159, 159, 159))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel2)
-                        .addGap(35, 35, 35))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(30, 30, 30)
-                        .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addGap(61, 61, 61)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel2)
+                .addGap(35, 35, 35)
                 .addComponent(bTest1)
                 .addGap(18, 18, 18)
                 .addComponent(bTest)
@@ -271,7 +267,7 @@ public class new2 extends javax.swing.JFrame {
        
         String sql ="select min(age), max(age),count(age),avg(age),"
                 + "(count(pizza *100),count(pasta *100),count(pap_and_wors *100),"
-                + "avg(movies), avg(radio), avg(eat_out),avg(tv) from 'score')";
+                + "sum(movies), sum(radio), sum(eat_out),sum(tv) from 'score')";
         try
         {
             Class.forName("com.mysql.cj.jdbc.Driver");
@@ -303,16 +299,16 @@ public class new2 extends javax.swing.JFrame {
             String pap = rs.getString("count(pap_abd_wors *100)");
             JSum6.setText(pap);
             
-            String movies = rs.getString("avg(movies)");
+            String movies = rs.getString("sum(movies/100)");
             JSum7.setText(movies);
             
-            String radio = rs.getString("avg(radio)");
+            String radio = rs.getString("sum(radio/100)");
             JSum8.setText(radio);
             
-            String eat = rs.getString("avg(eat_out)");
+            String eat = rs.getString("sum(eat_out/100)");
             JSum9.setText(eat);
             
-            String tv = rs.getString("avg(tv))");
+            String tv = rs.getString("sum(tv /100))");
             JSum6.setText(tv);
         }
         catch(Exception e)

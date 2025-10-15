@@ -45,32 +45,27 @@
                                       <EmptySpace max="32767" attributes="0"/>
                                       <Component id="bTest" min="-2" max="-2" attributes="0"/>
                                   </Group>
-                                  <Group type="102" attributes="0">
+                                  <Group type="102" alignment="0" attributes="0">
                                       <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="TextNumber" alignment="0" min="-2" pref="228" max="-2" attributes="0"/>
+                                          <Component id="jLabel7" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="TextEmail" alignment="0" min="-2" pref="228" max="-2" attributes="0"/>
+                                          <Component id="jLabel6" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="TextFullName" alignment="0" min="-2" pref="228" max="-2" attributes="0"/>
                                           <Group type="102" alignment="0" attributes="0">
-                                              <Group type="103" groupAlignment="0" attributes="0">
-                                                  <Component id="TextNumber" alignment="0" min="-2" pref="228" max="-2" attributes="0"/>
-                                                  <Component id="jLabel7" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="TextEmail" alignment="0" min="-2" pref="228" max="-2" attributes="0"/>
-                                                  <Component id="jLabel6" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="TextFullName" alignment="0" min="-2" pref="228" max="-2" attributes="0"/>
-                                                  <Group type="102" alignment="0" attributes="0">
-                                                      <Component id="CheckBoxPizza" min="-2" max="-2" attributes="0"/>
-                                                      <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
-                                                      <Component id="CheckBoxPasta" min="-2" max="-2" attributes="0"/>
-                                                      <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
-                                                      <Component id="CheckBoxPap" min="-2" max="-2" attributes="0"/>
-                                                  </Group>
-                                                  <Component id="jLabel19" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              </Group>
-                                              <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
-                                              <Component id="CheckBoxOther" min="-2" max="-2" attributes="0"/>
+                                              <Component id="CheckBoxPizza" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
+                                              <Component id="CheckBoxPasta" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
+                                              <Component id="CheckBoxPap" min="-2" max="-2" attributes="0"/>
                                           </Group>
-                                          <Component id="TextNumber1" alignment="0" min="-2" pref="228" max="-2" attributes="0"/>
-                                          <Component id="jLabel5" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLabel19" alignment="0" min="-2" max="-2" attributes="0"/>
                                       </Group>
-                                      <EmptySpace max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
+                                      <Component id="CheckBoxOther" min="-2" max="-2" attributes="0"/>
                                   </Group>
+                                  <Component id="TextNumber1" alignment="0" min="-2" pref="228" max="-2" attributes="0"/>
+                                  <Component id="jLabel5" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <Component id="jSeparator7" alignment="0" max="32767" attributes="0"/>
@@ -500,6 +495,9 @@
     <Component class="javax.swing.JRadioButton" name="RadioNeutral">
     </Component>
     <Component class="javax.swing.JTextField" name="TextNumber1">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="TextNumber1ActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel19">
       <Properties>

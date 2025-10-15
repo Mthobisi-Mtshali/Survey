@@ -231,6 +231,12 @@ public class New extends javax.swing.JFrame
             }
         });
 
+        TextNumber1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TextNumber1ActionPerformed(evt);
+            }
+        });
+
         jLabel19.setText("Age");
 
         bTest.setText("VIEW SURVEY RESULTS");
@@ -265,25 +271,22 @@ public class New extends javax.swing.JFrame
                                         .addComponent(bTest))
                                     .addGroup(layout.createSequentialGroup()
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(TextNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jLabel7)
+                                            .addComponent(TextEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jLabel6)
+                                            .addComponent(TextFullName, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addGroup(layout.createSequentialGroup()
-                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                    .addComponent(TextNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                    .addComponent(jLabel7)
-                                                    .addComponent(TextEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                    .addComponent(jLabel6)
-                                                    .addComponent(TextFullName, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                    .addGroup(layout.createSequentialGroup()
-                                                        .addComponent(CheckBoxPizza)
-                                                        .addGap(31, 31, 31)
-                                                        .addComponent(CheckBoxPasta)
-                                                        .addGap(51, 51, 51)
-                                                        .addComponent(CheckBoxPap))
-                                                    .addComponent(jLabel19))
-                                                .addGap(36, 36, 36)
-                                                .addComponent(CheckBoxOther))
-                                            .addComponent(TextNumber1, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jLabel5))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))))
+                                                .addComponent(CheckBoxPizza)
+                                                .addGap(31, 31, 31)
+                                                .addComponent(CheckBoxPasta)
+                                                .addGap(51, 51, 51)
+                                                .addComponent(CheckBoxPap))
+                                            .addComponent(jLabel19))
+                                        .addGap(36, 36, 36)
+                                        .addComponent(CheckBoxOther))
+                                    .addComponent(TextNumber1, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel5)))
                             .addComponent(jSeparator7)
                             .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(layout.createSequentialGroup()
@@ -510,6 +513,31 @@ public class New extends javax.swing.JFrame
         {
             JOptionPane.showMessageDialog(null,"Make sure all fields are filled and boxes checked");
         }
+         try
+        {
+            double number = Double.parseDouble(TextNumber.getText());
+            
+        }
+        catch(Exception e)
+        {
+            JOptionPane.showMessageDialog(null,"Please enter a number on your Phone TextBox");
+        }
+           try
+        {   
+             //double number = Double.parseDouble(TextNumber.getText());
+             int age = Integer.parseInt(TextNumber1.getText());
+             
+             //JOptionPane.showMessageDialog(null," Please enter a number on PhoneText Field"); 
+             
+             if(age <= 5 || age >= 120 )
+             {
+                 JOptionPane.showMessageDialog(null, age + "year old can not participate only 6 year old and above but less then 120");
+             }
+        }
+        catch(Exception e)
+        {
+            JOptionPane.showMessageDialog(null,e);
+        }
         if(RadioStrong.isSelected())
         {
             RadioAgree.setSelected(false);
@@ -518,9 +546,7 @@ public class New extends javax.swing.JFrame
             RadioStrongDis.setSelected(false);
             
         }
-        else 
-        {
-            String sql ="INSERT INTO DAIRY(FullName,Email,Phone)VALUES(?,?,?)";
+         String sql ="INSERT INTO DAIRY(FullName,Email,Phone,age)VALUES(?,?,?,?)";
          try
         {
             //Class.forName("com.mysql.cj.jdbc.Driver");
@@ -532,7 +558,8 @@ public class New extends javax.swing.JFrame
             
             ps.setString(1, TextFullName.getText());
             ps.setString(2,TextEmail.getText() );
-            
+            ps.setString(3,TextNumber.getText());
+            ps.setString(4,TextNumber1.getText());
             
             JOptionPane.showMessageDialog(null, "Submited");
         }
@@ -540,30 +567,13 @@ public class New extends javax.swing.JFrame
         {
             JOptionPane.showMessageDialog(null, e);
         }
-          try
         {
-            double number = Double.parseDouble(TextNumber.getText());
-            
-        }
-        catch(Exception e)
-        {
-            JOptionPane.showConfirmDialog(null,"Invalied Input. Please enter a number");
-        }
-       try
-        {
-             int age = Integer.parseInt(TextNumber1.getText());
-             while(age <= 5 )
-             {
-                 JOptionPane.showMessageDialog(null, age + "year old can not participate only 6 year old and above");
-             }
-        }
-        catch(Exception e)
-        {
-            JOptionPane.showConfirmDialog(null,"Invalied Input. Please enter age");
-        }
+           
+        /* 
+       */
 
         }
-         JOptionPane.showMessageDialog(null,"Submitted");      
+        //JOptionPane.showMessageDialog(null,"Submitted");      
     }//GEN-LAST:event_bSubmitActionPerformed
 
     private void CheckBoxPizzaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CheckBoxPizzaActionPerformed
@@ -608,6 +618,10 @@ public class New extends javax.swing.JFrame
         
 
     }//GEN-LAST:event_bTestActionPerformed
+
+    private void TextNumber1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TextNumber1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TextNumber1ActionPerformed
 
     /**
      * @param args the command line arguments
